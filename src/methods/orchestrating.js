@@ -1,17 +1,23 @@
-export default {
-  organizeCurrentWeatherInfo: organizeCurrentWeatherInfo,
-  organizeTodayHighlights: organizeTodayHighlights,
-  organizeAllDetails: organizeAllDetails
-}
+import * as processData from './processData';
+import { fetchWeatherData } from 'fetchData';
 
-function organizeCurrentWeatherInfo() {
+const organizeCurrentWeatherInfo = () => {
+  processData.getSetCurrentTime();
+  processData.getSetCurrentTemp();
+  processData.getSetTodayTempHighLowWithTime();
+  processData.getSetSummary();
+  processData.getSetPossibility();
+};
 
-}
+const organizeTodayHighlights = () => {
+  processData.getSetUVIndex();
+  processData.getSetVisibility();
+  processData.getSetWindStatus();
+};
 
-function organizeTodayHighlights() {
-
-}
-
-function organizeAllDetails() {
-
-}
+export const organizeAllDetails = async () => {
+  await fetchWeatherData();
+  organizeCurrentWeatherInfo();
+  organizeTodayHighlights();
+  processData.getSetHourlyTempInfoToday();
+};

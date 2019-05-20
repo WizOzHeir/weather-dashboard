@@ -1,33 +1,11 @@
-import { convertToTitleCase } from './utility';
-import { setLocation, setInputValue, setTempVar, getValue } from '../store/actions';
-import * as locales from '../constants';
+import { getValue, setValue } from "../store/store";
 
-export const makeInputEmpty = () => {
-  setInputValue('');
+const makeInputEmpty = () => {};
+
+const makeTempVarTodayEmpty = () => {
+  setValue('tempVar.tempToday', []);
 };
 
-export const makeTempVarTodayEmpty = () => {
-  setTempVar([]);
-};
+const detectEnterKeyPress = () => {};
 
-export const detectEnterKeyPress = (setHitEnterKeyTrue) => {
-  getValue(locales.INPUT).addEventListener('keyup', function (event) {
-    event.preventDefault();
-    const enterKeyCode = 13;
-    if (event.keyCode === enterKeyCode) {
-      setHitEnterKeyTrue();
-    }
-  })
-};
-
-export const locationEntered = () => {
-  const input = getValue(locales.INPUT).value;
-  if ( input === '') {
-    setLocation(locales.DEFAULT_LOCATION);
-  } else {
-    setLocation(convertToTitleCase(input.value));
-  }
-  makeInputEmpty();
-  makeTempVarTodayEmpty();
-};
-
+export const locationEntered = () => {};

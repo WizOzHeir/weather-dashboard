@@ -17,6 +17,7 @@
     "fusioncharts": "^3.13.3",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.21",
+    "object-path": "^0.11.4",
     "vue": "^2.5.2",
     "vue-fusioncharts": "^2.0.4",
     "vue-router": "^3.0.6"
