@@ -1,5 +1,5 @@
 import { getValue, setValue } from "../store/store";
-import { unixToHuman, convertToTitleCase, formatPossibility, fahToCel, mileToKilometer, deriveWindDir } from 'utility';
+import { unixToHuman, convertToTitleCase, formatPossibility, fahToCel, mileToKilometer, deriveWindDir } from './utility';
 
 const getTimezone = () => getValue('rawWeatherData.timezone');
 
@@ -35,12 +35,11 @@ export const getSetCurrentTemp = () => {
 
 const getHourlyInfoToday = () => getValue('rawWeatherData.hourly.data');
 
-const getTodayDetails = () => getHourlyInfoToday()[0];
+const getTodayDetails = () => getValue('rawWeatherData.daily.data')[0];
 
 export const getSetTodayTempHighLowWithTime = () => {
   const timezone = getTimezone();
   const todayDetails = getTodayDetails();
-
   setValue('currentWeather.todayHighLow.todayTempHigh', fahToCel(todayDetails.temperatureMax));
   setValue('currentWeather.todayHighLow.todayTempLow',
     unixToHuman(timezone, todayDetails.temperatureMaxTime).onlyTime);
@@ -64,10 +63,10 @@ export const getSetHourlyTempInfoToday = () => {
       let hourlyObject = { hour: '', temp: '' };
       hourlyObject.hour = hourlyOnlyTime;
       hourlyObject.temp = fahToCel(hourlyData[i].temperature).toString();
-      this.tempVar.tempToday.push(hourlyObject);
       setValue('tempVar.tempToday', [...getValue('tempVar.tempToday'), hourlyObject]);
     }
-    if (this.tempVar.tempToday.length <= 2) {
+
+    if (getValue('tempVar.tempToday').length <= 2) {
       const minTempObject = {
         hour: getValue('currentWeather.todayHighLow.todayTempHighTime'),
         temp: getValue('currentWeather.todayHighLow.todayTempHigh')

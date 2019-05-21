@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
   width: 100%;
   margin: 0;
@@ -98,7 +98,7 @@ body {
 #max-detail>span,
 #min-detail>span {
   color: #ffffff;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 1.2rem;
   line-height: 10px;
   vertical-align: super;
@@ -106,7 +106,6 @@ body {
 
 #max-summary,
 #min-summary {
-  opacity: 0.9;
   color: #ffffff;
   font-size: 1.4rem;
   line-height: 16px;

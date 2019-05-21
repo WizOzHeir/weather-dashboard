@@ -1,6 +1,6 @@
 import objectPath from 'object-path';
 
-const store =  {
+export const store =  {
   weatherDetails: false,
   location: '', // raw location from input
   lat: '', // raw latitude from google maps api response
@@ -38,6 +38,6 @@ const store =  {
   }
 };
 
-export const getValue = (propertyPath) => objectPath.get(store, propertyPath, null)
+export const getValue = (propertyPath) => objectPath.get(store, propertyPath, null);
 export const setValue = (propertyPath, value) => objectPath.set(store, propertyPath, value);
 

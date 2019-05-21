@@ -1,5 +1,5 @@
 import * as processData from './processData';
-import { fetchWeatherData } from 'fetchData';
+import { fetchWeatherData } from './fetchData';
 
 const organizeCurrentWeatherInfo = () => {
   processData.getSetCurrentTime();

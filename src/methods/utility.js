@@ -1,3 +1,5 @@
+import moment from 'moment-timezone';
+
 const formatString = (str, separator) => {
   str = str.toLowerCase().split(separator);
   for (let i = 0; i < str.length; i++) {
@@ -11,7 +13,6 @@ export const convertToTitleCase = str => formatString(str,  ' ');
 export const formatPossibility = str => formatString(str,  '-');
 
 export const unixToHuman = (timezone, timestamp) => {
-  const moment = require('moment-timezone');
   const decipher = new Date(timestamp * 1000);
   const human = moment(decipher)
     .tz(timezone)

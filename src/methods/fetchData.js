@@ -25,7 +25,7 @@ const getCoordinates = () => {
 
         resolve(coords);
       } else {
-        alert("Oops! Couldn't get data for the location");
+        console.log("Oops! Couldn't get data for the location");
       }
     });
   });
@@ -76,6 +76,6 @@ export const fetchWeatherData = async () => {
   if (weatherApiResponse.status === 200) {
     setValue('rawWeatherData', weatherApiResponse.data);
   } else {
-    alert('Hmm... Seems like our weather experts are busy!');
+    console.log('Hmm... Seems like our weather experts are busy!');
   }
 };
