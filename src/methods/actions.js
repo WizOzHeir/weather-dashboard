@@ -1,7 +1,7 @@
-import { getValue, setValue } from "../store/store";
+import { getValue, setValue } from '../store/store';
 import { convertToTitleCase } from './utility';
 
-const makeInputEmpty = () => {
+export const makeInputEmpty = () => {
   setValue('input', '');
 };
 
@@ -9,17 +9,13 @@ const makeTempVarTodayEmpty = () => {
   setValue('tempVar.tempToday', []);
 };
 
-const detectEnterKeyPress = () => {
-  console.log('detect enter')
-};
+const detectEnterKeyPress = (event) => {};
 
-export const locationEntered = () => {
-  //const input = this.$root.$refs.input;
-  if (true || input.value === '') {
+export const locationEntered = (value) => {
+  if (!value) {
     setValue('location', 'London');
   } else {
-    setValue('location', convertToTitleCase(input.value))
+    setValue('location', convertToTitleCase(value))
   }
-  makeInputEmpty();
   makeTempVarTodayEmpty();
 };

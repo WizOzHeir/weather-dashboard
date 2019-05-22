@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import TempVarChart from './TempVarChart';
-  import Highlights from './Highlights';
+  import TempVarChart from './TempVarChart.vue';
+  import Highlights from './Highlights.vue';
 
   export default {
     props: ["highlights", "tempVar"],

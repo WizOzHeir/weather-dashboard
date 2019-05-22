@@ -9,10 +9,11 @@
               type="text"
               ref="input"
               placeholder="Location?"
+              v-model="input"
               @keyup.enter="organizeAllDetails"
             />
             <button id="search-btn" @click="organizeAllDetails">
-              <img src="./assets/search.svg" width="24" height="24" />
+              <img src="./assets/search.svg" width="24" height="24" alt="search icon" />
             </button>
           </div>
 
@@ -73,7 +74,12 @@
             </div>
           </div>
         </div>
-      <dashboard-content :highlights="highlights" :tempVar="tempVar"></dashboard-content>
+      <dashboard-content
+        class="col-md-9 col-sm-8 col-xs-12 content"
+        id="dashboard-content"
+        :highlights="highlights"
+        :tempVar="tempVar">
+      </dashboard-content>
       </div>
     </div>
   </div>
@@ -81,8 +87,9 @@
 
 <script>
   import Content from './components/Content';
-  import { store } from "./store/store";
+  import { store } from './store/store'
   import { organizeAllDetails } from './methods/orchestrating';
+  import { locationEntered } from './methods/actions';
 
   export default {
     name: 'app',
@@ -90,11 +97,18 @@
       'dashboard-content': Content
     },
     data() {
-      return store
+      return {
+        ...store
+      }
     },
-    methods: {},
+    methods: {
+      organizeAllDetails: organizeAllDetails,
+    },
     computed: {},
-    mounted: async function() {
+    watch: {
+      input: locationEntered,
+    },
+    mounted: async function () {
       await organizeAllDetails();
     }
   }

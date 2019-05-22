@@ -1,8 +1,9 @@
 import objectPath from 'object-path';
 
 export const store =  {
+  input: 'London',
   weatherDetails: false,
-  location: '', // raw location from input
+  location: 'London', // raw location from input
   lat: '', // raw latitude from google maps api response
   long: '', // raw longitude from google maps api response
   completeWeatherApi: '', // weather api string with lat and long
@@ -40,4 +41,3 @@ export const store =  {
 
 export const getValue = (propertyPath) => objectPath.get(store, propertyPath, null);
 export const setValue = (propertyPath, value) => objectPath.set(store, propertyPath, value);
-

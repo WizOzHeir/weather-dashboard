@@ -1,4 +1,4 @@
-import { getValue, setValue } from "../store/store";
+import { getValue, setValue } from '../store/store';
 import { unixToHuman, convertToTitleCase, formatPossibility, fahToCel, mileToKilometer, deriveWindDir } from './utility';
 
 const getTimezone = () => getValue('rawWeatherData.timezone');

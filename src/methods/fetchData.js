@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-import { getValue, setValue } from "../store/store";
+import { getValue, setValue } from '../store/store';
 import { locationEntered } from './actions';
 
 const getCoordinates = () => {
-  locationEntered();
+  //locationEntered();
   const loc = getValue('location');
   let coords;
   const geocoder = new google.maps.Geocoder();
+  console.log(loc)
   return new Promise(function(resolve, reject) {
     geocoder.geocode({ address: loc }, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
