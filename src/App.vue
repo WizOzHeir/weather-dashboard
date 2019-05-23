@@ -97,9 +97,7 @@
       'dashboard-content': Content
     },
     data() {
-      return {
-        ...store
-      }
+      return store
     },
     methods: {
       organizeAllDetails: organizeAllDetails,

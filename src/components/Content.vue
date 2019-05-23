@@ -1,6 +1,6 @@
 <template>
   <div style="position: relative">
-    <temp-var-chart :tempVar="tempVar"></temp-var-chart>
+    <temp-var-chart :tempToday="tempVar.tempToday"></temp-var-chart>
     <today-highlights :highlights="highlights"></today-highlights>
   </div>
 </template>

@@ -8,7 +8,6 @@ const getCoordinates = () => {
   const loc = getValue('location');
   let coords;
   const geocoder = new google.maps.Geocoder();
-  console.log(loc)
   return new Promise(function(resolve, reject) {
     geocoder.geocode({ address: loc }, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {

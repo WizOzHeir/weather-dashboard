@@ -17,5 +17,5 @@ export const locationEntered = (value) => {
   } else {
     setValue('location', convertToTitleCase(value))
   }
-  makeTempVarTodayEmpty();
+  //makeTempVarTodayEmpty();
 };

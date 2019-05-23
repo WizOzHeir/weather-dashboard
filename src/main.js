@@ -1,11 +1,21 @@
 import Vue from 'vue'
 import App from './App'
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
+import Widgets from 'fusioncharts/fusioncharts.widgets';
+import PowerCharts from 'fusioncharts/fusioncharts.powercharts';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import VueFusionCharts from 'vue-fusioncharts';
+
+Charts(FusionCharts);
+PowerCharts(FusionCharts);
+Widgets(FusionCharts);
+FusionTheme(FusionCharts);
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
+Vue.use(VueFusionCharts, FusionCharts);
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 });
